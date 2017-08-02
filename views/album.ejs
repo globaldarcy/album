@@ -75,16 +75,17 @@
     </div><!-- /.container-fluid -->
 </nav>
 <ol class="breadcrumb">
-    <li class="active">全部相册</li>
+    <li><a href="/">全部相册</a></li>
+    <li class="active"><%= title %></li>
 </ol>
 <div class="container">
     <div class="row">
-        <% for(var i = 0; i < albums.length; i++){ %>
+        <% for(var i = 0; i < imgs.length; i++){ %>
         <div class="col-xs-6 col-md-3">
-            <a href="<%= albums[i] %>" class="thumbnail">
-                <img src="imgs/folder.png" alt="glyphicon glyphicon-folder-open">
+            <a href="<%= imgs[i] %>" class="thumbnail">
+                <img src="<%= '/' + title + '/' + imgs[i] %>" alt="glyphicon glyphicon-folder-open">
             </a>
-            <h4 class="text-center"><%= albums[i] %></h4>
+            <h4 class="text-center"><%= imgs[i] %></h4>
         </div>
         <% } %>
     </div>

@@ -10,12 +10,26 @@ router.get('/', function(req, res, next) {
           return allAlbums;
       })
   });*/
-  file(function (allAlbums) {
+  file.getAllAlbums(function (err, allAlbums) {
+      if(err) {
+          next();
+      }
       res.render('index', {
           title: 'Express',
           albums: allAlbums
       })
-  })
+  });
+});
+router.get('/:albumName', function (req, res, next) {
+    file.getAlbumImg(req, res, function (err, allImg) {
+        if(err){
+            next();
+        }
+        res.render('album', {
+            title: req.params.albumName,
+            imgs:allImg
+        })
+    })
 });
 
 module.exports = router;
